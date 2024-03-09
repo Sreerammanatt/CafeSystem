@@ -3,11 +3,13 @@ package com.example.Cafe.Controller;
 import com.example.Cafe.Domain.User;
 import com.example.Cafe.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 class UserController {
     @Autowired
     private UserService userService;
@@ -29,9 +31,11 @@ class UserController {
 
     }
 
-    @GetMapping("/getAllUser")
-    public List<User> getAllUser() {
-        return userService.findAllUser();
+    @GetMapping("/")
+    public String getAllUser(Model model) {
+        model.addAttribute("listUser",userService.findAllUser());
+        model.addAttribute("user",userService.findAllUser().get(0));
+        return "index";
 
     }
 
