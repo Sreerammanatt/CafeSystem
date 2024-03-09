@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Cafe.iml" filepath="$PROJECT_DIR$/.idea/Cafe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Cafe/Cafe.iml" filepath="$PROJECT_DIR$/Cafe/Cafe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CafeSystem.iml" filepath="$PROJECT_DIR$/.idea/CafeSystem.iml" />
     </modules>
   </component>
 </project>
