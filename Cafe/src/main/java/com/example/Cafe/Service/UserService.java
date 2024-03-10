@@ -39,9 +39,8 @@ public class UserService {
     }
 
     public User updateUser(User user) {
-        User userExisting = userRepo.findById(user.getUserId()).orElse(null);
+        User userExisting = userRepo.findById(user.getId()).orElse(null);
         if (!(userExisting == null)) {
-            userExisting.setBill(user.getBill());
             userExisting.setName(user.getName());
             userExisting.setPhone(user.getPhone());
             userRepo.save(userExisting);
