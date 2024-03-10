@@ -16,6 +16,9 @@
 <div th:if="${param.success}">
     <div class="alert alert-info">Login SuccessFull</div>
 </div>
+    <nav class="navbar navbar-light bg-light " style="bg-color:red">
+        <a class="navbar-brand" href="#">Please Register</a>
+    </nav>
 <form th:action="@{/registration}" method="post" th:object="${user}">
 
     <div class="form-group">
@@ -28,7 +31,7 @@
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Email address</label>
-        <input  type="password" th:field="*{email}" class="form-control"  required id="exampleFormControlInput8" placeholder="name@example.com" autofocus>
+        <input  type="email" th:field="*{email}" class="form-control"  required id="exampleFormControlInput8" placeholder="name@example.com" autofocus>
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Password</label>
@@ -36,7 +39,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
     <br> <br>
-<!--    <span>Already registered?   <a href="/" th:href="@{/registration}">Login</a></span>-->
+    <span>Already registered?   <a href="/" th:href="@{/registration}">Login Here</a></span>
 </form>
 
 </div>

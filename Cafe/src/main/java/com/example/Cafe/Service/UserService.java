@@ -4,6 +4,7 @@ package com.example.Cafe.Service;
 import com.example.Cafe.Domain.User;
 import com.example.Cafe.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public class UserService {
 
     private UserRepo userRepo;
 
+    private PasswordEncoder passwordEncoder;
+
     public User findUser(Long id) {
         return userRepo.findById(id).orElse(null);
     }
@@ -26,7 +29,7 @@ public class UserService {
     }
 
     public User saveUser(User user) {
-        return userRepo.save(user);
+     return userRepo.save(user);
     }
 
     public void saveAllUser(List<User> user) {

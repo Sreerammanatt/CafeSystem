@@ -1,6 +1,7 @@
 package com.example.Cafe.Domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -28,14 +29,16 @@ public class User implements Serializable {
 
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinTable(name = "users_roles",
-    joinColumns = @JoinColumn(
-            name = "user_id",referencedColumnName = "id"
-    ),inverseJoinColumns = @JoinColumn(
-            name = "role_id",referencedColumnName = "id"
-    ))
-    private Collection<Roles> roles;
+//    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+//    @JoinTable(name = "users_roles",
+//    joinColumns = @JoinColumn(
+//            name = "user_id",referencedColumnName = "id"
+//    ),inverseJoinColumns = @JoinColumn(
+//            name = "role_id",referencedColumnName = "id"
+//    ))
+//    private Collection<Roles> roles;
+
+    private String role;
 
 
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/registration")
+//@RequestMapping("/registration")
 class UserController {
     @Autowired
     private UserService userService;
@@ -20,46 +20,53 @@ class UserController {
         return new User();
     }
 
-    @GetMapping
+    @GetMapping("/registration")
     public String showRegistrationForm(){
         return "registration";
     }
 
-    @PostMapping
+    @PostMapping("/registration")
     public String addUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
     return "redirect:/registration?success";
     }
 
-    @PostMapping("/addAllUser")
-    public void addAllUser(@RequestBody List<User> user) {
-        userService.saveAllUser(user);
-
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
 
-    @GetMapping("/getUser/{id}")
-    public User getUser(@PathVariable Long id) {
-        return userService.findUser(id);
 
-    }
 
-    @GetMapping("/name")
-    public String getAllUser(Model model) {
-        model.addAttribute("listUser", userService.findAllUser());
-        return "index";
-
-    }
-
-    @PutMapping("/update")
-    public User updateUser(@RequestBody User user) {
-        return userService.updateUser(user);
-
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        return userService.deleteUser(id);
-    }
+//    @PostMapping("/addAllUser")
+//    public void addAllUser(@RequestBody List<User> user) {
+//        userService.saveAllUser(user);
+//
+//    }
+//
+//    @GetMapping("/getUser/{id}")
+//    public User getUser(@PathVariable Long id) {
+//        return userService.findUser(id);
+//
+//    }
+//
+//    @GetMapping("/name")
+//    public String getAllUser(Model model) {
+//        model.addAttribute("listUser", userService.findAllUser());
+//        return "index";
+//
+//    }
+//
+//    @PutMapping("/update")
+//    public User updateUser(@RequestBody User user) {
+//        return userService.updateUser(user);
+//
+//    }
+//
+//    @DeleteMapping("/delete/{id}")
+//    public String deleteUser(@PathVariable Long id) {
+//        return userService.deleteUser(id);
+//    }
 
 }
 
