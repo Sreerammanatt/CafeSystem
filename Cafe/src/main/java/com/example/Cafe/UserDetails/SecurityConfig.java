@@ -34,12 +34,16 @@ public class SecurityConfig {
                         "/admin-page"
                 ).permitAll().requestMatchers("user-page").permitAll()
                         .requestMatchers("/registration","/css/**").permitAll()
+                        .requestMatchers("/login").permitAll()
                         .anyRequest().authenticated())
+
                 .formLogin(form->form.loginPage("/login").loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/").permitAll())
-                .logout(form->form.invalidateHttpSession(true).clearAuthentication(true)
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/login"))
-                        .logoutSuccessUrl("/logout?logout").permitAll());
+                        .defaultSuccessUrl("/").permitAll());
+
+        //session not working
+//                .logout(form->form.invalidateHttpSession(true).clearAuthentication(true)
+//                        .logoutRequestMatcher(new AntPathRequestMatcher("/login"))
+//                        .logoutSuccessUrl("/logout?logout").permitAll());
         return http.build();
 
 
